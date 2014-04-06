@@ -1,0 +1,430 @@
+<html>
+	<head>
+		<title>Starhub</title>
+		<link href="{{ url_for('static', filename='css/octo.css') }}"/>
+		<style>
+			@font-face {
+			    font-family: "Collegia";
+			    src: url({{ url_for('static', filename='fonts/COLLEGIA.ttf') }}) format("truetype");
+			}
+			* {
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+			}
+			#header {
+				height:70px;
+				width:100%;
+				border-bottom: 1px solid #e5e5e5;
+				float:left;
+			}
+			.logoWrapper {
+				margin:0 auto;
+				width:40px;
+
+				margin:0 auto;
+			}
+			.logo {
+				font-family:Collegia;
+				font-size: 50px;
+				margin-left:-49px;
+				
+				
+			}
+			#star-five {
+				z-index: 1;
+			   top:89px;
+			   left:-43px;
+			   position: absolute;
+			   display: block;
+			   color: #E2B227;
+			   width: 0px;
+			   height: 0px;
+			   border-right:  100px solid transparent;
+			   border-bottom: 70px  solid #E2B227;
+			   border-left:   100px solid transparent;
+			   -moz-transform:    rotate(35deg);
+			   -webkit-transform: rotate(35deg);
+			   -ms-transform:     rotate(35deg);
+			   -o-transform:      rotate(35deg);
+			}
+			#star-five:before {
+			   border-bottom: 80px solid #E2B227;
+			   border-left: 30px solid transparent;
+			   border-right: 30px solid transparent;
+			   position: absolute;
+			   height: 0;
+			   width: 0;
+			   top: -45px;
+			   left: -65px;
+			   display: block;
+			   content: '';
+			   -webkit-transform: rotate(-35deg);
+			   -moz-transform:    rotate(-35deg);
+			   -ms-transform:     rotate(-35deg);
+			   -o-transform:      rotate(-35deg);
+
+			}
+			#star-five:after {
+			   position: absolute;
+			   display: block;
+			   color: #E2B227;
+			   top: 3px;
+			   left: -105px;
+			   width: 0px;
+			   height: 0px;
+			   border-right: 100px solid transparent;
+			   border-bottom: 70px solid #E2B227;
+			   border-left: 100px solid transparent;
+			   -webkit-transform: rotate(-70deg);
+			   -moz-transform:    rotate(-70deg);
+			   -ms-transform:     rotate(-70deg);
+			   -o-transform:      rotate(-70deg);
+			   content: '';
+			}
+			#githubLogo {
+				width: 170px;
+				margin:0 auto;
+				position: relative;
+
+			}
+			#githubLogo img {
+				width:100%;
+				margin:20px auto 0 auto;
+				z-index: 1022;
+
+
+			}
+			#signupForm {
+				box-sizing:border-box;
+				color: rgb(51, 51, 51);
+				display: block;
+				font-family: Helvetica, arial, freesans, clean, sans-serif;
+				font-size: 13px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				height: 261px;
+				line-height: 18.200000762939453px;
+				margin:30px auto 0 auto;
+				width: 400px;
+				height:280px;
+			}
+			.auth-form-header {
+
+				position: relative;
+				padding: 10px 20px;
+				margin: 0;
+				color: #fff;
+				text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+				background-color: #6c8393;
+				background-image: -moz-linear-gradient(#7f95a5, #6c8393);
+				background-image: -webkit-linear-gradient(#7f95a5, #6c8393);
+				background-image: linear-gradient(#7f95a5, #6c8393);
+				background-repeat: repeat-x;
+				border: 1px solid #6e8290;
+				border-bottom-color: #586873;
+				border-radius: 4px 4px 0 0;
+				height:40px;
+				font-size:16px;
+				font-weight: bold;
+			}
+			.auth-form-body {
+				background-color: rgb(255, 255, 255);
+				border-bottom-color: rgb(216, 222, 226);
+				border-bottom-left-radius: 4px;
+				border-bottom-right-radius: 4px;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-image-outset: 0px;
+				border-image-repeat: stretch;
+				border-image-slice: 100%;
+				border-image-source: none;
+				border-image-width: 1;
+				border-left-color: rgb(216, 222, 226);
+				border-left-style: solid;
+				border-left-width: 1px;
+				border-right-color: rgb(216, 222, 226);
+				border-right-style: solid;
+				border-right-width: 1px;
+				border-top-color: rgb(255, 255, 255);
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-top-style: solid;
+				border-top-width: 1px;
+				box-sizing: border-box;
+				color: rgb(51, 51, 51);
+				display: block;
+				font-family: Helvetica, arial, freesans, clean, sans-serif;
+				font-size: 14px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				height: 290px;
+				line-height: 19.600000381469727px;
+				padding-bottom: 20px;
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-top: 20px;
+				width: 400px;
+			}
+			.auth-form-body label {
+				box-sizing: border-box;
+				color: rgb(51, 51, 51);
+				cursor: default;
+				display: inline;
+				font-family: Helvetica, arial, freesans, clean, sans-serif;
+				font-size: 13px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: bold;
+				height: auto;
+				line-height: 18.200000762939453px;
+				width: auto;
+			}
+			.auth-form-body input {
+				webkit-appearance: none;
+				-webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 2px 0px inset;
+				-webkit-rtl-ordering: logical;
+				-webkit-user-select: text;
+				-webkit-writing-mode: horizontal-tb;
+				background-color: rgb(255, 255, 255);
+				background-position: 100% 50%;
+				background-repeat: no-repeat;
+				border-bottom-color: rgb(204, 204, 204);
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-image-outset: 0px;
+				border-image-repeat: stretch;
+				border-image-slice: 100%;
+				border-image-source: none;
+				border-image-width: 1;
+				border-left-color: rgb(204, 204, 204);
+				border-left-style: solid;
+				border-left-width: 1px;
+				border-right-color: rgb(204, 204, 204);
+				border-right-style: solid;
+				border-right-width: 1px;
+				border-top-color: rgb(204, 204, 204);
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-top-style: solid;
+				border-top-width: 1px;
+				box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 2px 0px inset;
+				box-sizing: border-box;
+				color: rgb(51, 51, 51);
+				cursor: auto;
+				display: block;
+				font-family: Helvetica, arial, freesans, clean, sans-serif;
+				font-size: 13px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				height: 34px;
+				letter-spacing: normal;
+				line-height: 18.200000762939453px;
+				margin-bottom: 15px;
+				margin-left: 0px;
+				margin-right: 0px;
+				margin-top: 5px;
+				min-height: 34px;
+				outline-color: rgb(51, 51, 51);
+				outline-style: none;
+				outline-width: 0px;
+				padding-bottom: 7px;
+				padding-left: 8px;
+				padding-right: 8px;
+				padding-top: 7px;
+				text-align: start;
+				text-indent: 0px;
+				text-shadow: none;
+				text-transform: none;
+				vertical-align: middle;
+				width: 358px;
+				word-spacing: 0px;
+				writing-mode: lr-tb;
+			}
+			.auth-form-body button {
+
+				-webkit-appearance: none;
+				-webkit-rtl-ordering: logical;
+				-webkit-user-select: none;
+				-webkit-writing-mode: horizontal-tb;
+				align-items: flex-start;
+				background-color: rgb(238, 238, 238);
+				background-image: linear-gradient(rgb(252, 252, 252), rgb(238, 238, 238));
+				background-repeat: repeat-x;
+				border-bottom-color: rgb(213, 213, 213);
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-image-outset: 0px;
+				border-image-repeat: stretch;
+				border-image-slice: 100%;
+				border-image-source: none;
+				border-image-width: 1;
+				border-left-color: rgb(213, 213, 213);
+				border-left-style: solid;
+				border-left-width: 1px;
+				border-right-color: rgb(213, 213, 213);
+				border-right-style: solid;
+				border-right-width: 1px;
+				border-top-color: rgb(213, 213, 213);
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-top-style: solid;
+				border-top-width: 1px;
+				box-sizing: border-box;
+				color: rgb(51, 51, 51);
+				cursor: pointer;
+				display: inline-block;
+				font-family: Helvetica, arial, freesans, clean, sans-serif;
+				font-size: 13px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: bold;
+				height: 25px;
+				letter-spacing: normal;
+				line-height: 18.200000762939453px;
+				margin-bottom: 0px;
+				margin-left: 0px;
+				margin-right: 0px;
+				margin-top: 0px;
+				padding-bottom: 7px;
+				padding-left: 12px;
+				padding-right: 12px;
+				padding-top: 7px;
+				position: relative;
+				text-align: center;
+				text-indent: 0px;
+				text-shadow: rgba(255, 255, 255, 0.901961) 0px 1px 0px;
+				text-transform: none;
+				vertical-align: middle;
+				white-space: nowrap;
+				width: 71px;
+				word-spacing: 0px;
+				writing-mode: lr-tb;
+			}
+			#emailUpdates {
+				width:400px;
+				height:50px;
+				background-color: red;
+				opacity: .5;
+				border-radius: 10px;
+				margin:0 auto;
+
+
+			}
+
+			#emailUpdates input {
+				webkit-appearance: none;
+				-webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 2px 0px inset;
+				-webkit-rtl-ordering: logical;
+				-webkit-user-select: text;
+				-webkit-writing-mode: horizontal-tb;
+				background-color: rgb(255, 255, 255);
+				background-position: 100% 50%;
+				background-repeat: no-repeat;
+				border-bottom-color: rgb(204, 204, 204);
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-image-outset: 0px;
+				border-image-repeat: stretch;
+				border-image-slice: 100%;
+				border-image-source: none;
+				border-image-width: 1;
+				border-left-color: rgb(204, 204, 204);
+				border-left-style: solid;
+				border-left-width: 1px;
+				border-right-color: rgb(204, 204, 204);
+				border-right-style: solid;
+				border-right-width: 1px;
+				border-top-color: rgb(204, 204, 204);
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-top-style: solid;
+				border-top-width: 1px;
+				box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 2px 0px inset;
+				color: rgb(51, 51, 51);
+				cursor: auto;
+				display: block;
+				font-family: Helvetica, arial, freesans, clean, sans-serif;
+				font-size: 13px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				height: 30px;
+				letter-spacing: normal;
+				line-height: 18.200000762939453px;
+				margin-bottom: 15px;
+				
+				outline-color: rgb(51, 51, 51);
+				outline-style: none;
+				outline-width: 0px;
+				padding-bottom: 7px;
+				padding-left: 8px;
+				padding-right: 8px;
+				padding-top: 7px;
+				text-align: start;
+				text-indent: 0px;
+				text-shadow: none;
+				text-transform: none;
+				vertical-align: middle;
+				width: 40px;
+				word-spacing: 0px;
+				writing-mode: lr-tb;
+			}
+			.repoHint {
+				font-size:12px;
+				font-weight: 500;
+
+			}
+			#error {
+				margin:10px 0 0 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id='header'>
+			<div class='logoWrapper'>
+				<div class='logo'>
+					Starhub
+				</div>
+			</div>
+		</div>
+		
+		<div id='githubLogo'>
+			<!--<div id='star-five'></div>-->
+			<img src='{{ url_for('static', filename='images/starhublogo.png') }}'/>
+		</div>
+		<!--
+		<div id='emailUpdates'>
+			Enter email for updates : 
+			<input type='email' />
+		</div>
+	-->
+		
+		<div id='signupForm'>
+			<div class='auth-form-header'>Sign up</div>
+			<form action='/signup' method='POST' class='auth-form-body'>
+				<label>Username</label>
+				<input type='text' name='username' />
+
+				<label>Password</label>
+				<input type='password' name='password' />
+
+				<label>Repo <span class='repoHint'>(Must be in this format : https://github.com/joyent/node)</span></label>
+				<input type='text' name='repo' />
+
+				<button type='submit'>Submit</button>
+			</form>
+			<div id='error'>{{error}}</div>
+		</div>
+	</body>
+</html>
